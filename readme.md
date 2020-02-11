@@ -1,4 +1,4 @@
-![code.png](https://raw.githubusercontent.com/RobyRemzy/google-knowledge-scraper/master/code.png)
+![code.png](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/320px-Nextjs-logo.svg.png)
 
 # NextJs Prisma Web Shop ![GitHub][li-badge]
 
@@ -112,4 +112,4 @@ Pull requests are welcome.
 
 
 [me]: https://github.com/RobyRemzy
-[li-badge]: https://img.shields.io/github/license/RobyRemzy/google-knowledge-scraper
+[li-badge]: https://img.shields.io/github/license/RobyRemzy/NextJsShop
