@@ -26,7 +26,7 @@ Get yourself a token for [INSEE API](https://api.insee.fr/)
 copy that one inside `backend/env > API_INSEE_TOKEN`
 
 Get yourself a [Mapbox token](https://www.mapbox.com/)
-copy that one inside `frontend/config.js > mapboxApiAccessToken`
+copy that one inside `frontend/_config.js > mapboxApiAccessToken`
 
 Install all dependencies
 
@@ -41,7 +41,7 @@ npm install
 Remane the file `env` as `.env` and update it with your informations
 
 > On the frontend
-Review the `config.js` file
+Review the `_config.js` file and remane it to `config.js`
 
 ## Usage
 ```bash
