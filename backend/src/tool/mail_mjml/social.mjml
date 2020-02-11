@@ -1,0 +1,9 @@
+<mj-section background-color="#fff">
+  <mj-column width="100%">
+    <mj-text mj-class="center fl">On est là aussi!</mj-text>
+    <mj-social font-size="0px" icon-size="25px" padding="0px">
+      <mj-social-element name="facebook" href="https://fb.me/juiceavenuedistribution"></mj-social-element>
+      <mj-social-element name="instagram" href="https://www.instagram.com/juiceavenue"></mj-social-element>
+    </mj-social>
+  </mj-column>
+</mj-section>

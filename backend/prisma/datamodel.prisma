@@ -1,0 +1,180 @@
+enum Permission {
+  ADMIN
+  USERCHECKED
+  JADFAM
+  USER
+}
+
+enum OrderState {
+  REAPRO
+  VIREMENTOK
+  ENPREPA
+  EXPEDIER
+}
+
+type User {
+  id: ID! @unique @id
+  idCrm: String
+  firstname: String!
+  lastname: String!
+  email: String! @unique
+  phone: String!
+  password: String!
+  company: [UserCompany]
+  discount: Int @default(value: 0)
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy:RELATION)
+  address: [UserAddress]
+  isActive: Boolean! @default(value: false)
+  isVerify: Boolean! @default(value: false)
+  isAway: Boolean! @default(value: false)
+  cart: [CartItem!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type UserAddress {
+  id: ID! @unique @id
+  title: String!
+  invoice: Boolean @default(value: true)
+  shipping: Boolean @default(value: true)
+  name: String
+  address: String
+  zip: String
+  city: String
+  country: String
+  user: User
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type UserCompany {
+  id: ID! @unique @id
+  siren: String!
+  siret: String!
+  tva: String!
+  nafape: String!
+  name: String!
+  aliasName: String
+  # adr_num: String
+  # adr_type: String
+  # adr_libel: String
+  # adr_cp: String
+  # adr_com: String
+  user: User
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Item {
+  id: ID! @unique @id
+  sku: String! @unique
+  refcrm: String
+  category: Category!
+  brand: Brand!
+  label: String
+  title: String!
+  description: String
+  image: String
+    @default(
+      value: "https://res.cloudinary.com/jadistrib/image/upload/c_scale,w_600/v1549142724/dummies/60ml__chubby.jpg"
+    )
+    imageBack: String
+    @default(
+      value: "https://res.cloudinary.com/jadistrib/image/upload/v1556575031/logo/logo_kil_transparent.png"
+    )
+  photosj: Json
+  videosj: Json
+  price: Int!
+  vol: Int
+  nico: Int
+  # nicsalt: Boolean @default(value: false)
+  flavor: String
+  fresh: Float
+  fruit: Float
+  gourmand: Float
+  classic: Float
+  autonomie: Float
+  tirage: Float
+  rendu: Float
+  solidite: Float
+  vgpg: String
+  color: String
+  feature: String
+  features: Json
+  cartouche: String
+  recharge: String
+  materiel: String
+  dimensions: String
+  poid: String
+  batterie: String
+  packaging: String
+  stock: Int
+  selection: Boolean
+  # user: User
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Category {
+  id: ID! @unique @id
+  name: String!
+  slug: String! @unique
+  image: String
+  description: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Brand {
+  id: ID! @unique @id
+  name: String!
+  image: String
+  description: String
+  origine: String
+  www: String
+  facebook: String
+  insta: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type CartItem {
+  id: ID! @unique @id
+  quantity: Int! @default(value: 1)
+  item: Item
+  user: User!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type OrderItem {
+  id: ID! @unique @id
+  title: String!
+  sku: String!
+  description: String!
+  image: String!
+  price: Int!
+  quantity: Int! @default(value: 1)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Order {
+  id: ID! @unique @id
+  items: [OrderItem!]!
+  totalHT: Int!
+  totalTax: Int!
+  total: Int!
+  user: User!
+  invoiceAdr: String   
+  shippingAdr: String
+  transactionId: String
+  transactionToken: String!
+  trackingNum: String
+  invoice: String
+  state: [OrderState] @scalarList(strategy:RELATION)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}

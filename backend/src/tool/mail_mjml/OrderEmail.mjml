@@ -1,0 +1,127 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Helvetica Neue" font-size="16px" color="black" font-weight="200" />
+      <mj-text padding="0" />
+      <mj-class name="dark" color="#c1c1c1" />
+      <mj-class name="lightgrey" color="#f6f6f6" />
+      <mj-class name="darkgrey" color="#e0e0e0" />
+      <mj-class name="fxxl" font-size="30px" />
+      <mj-class name="fxl" font-size="20px" />
+      <mj-class name="fl" font-size="18px" />
+      <mj-class name="fs" font-size="12px" />
+      <mj-class name="center" align="center" />
+      <mj-class name="headertitle" background-color="#f6f6f6" border-top="1px solid #e0e0e0" border-bottom="1px solid #e0e0e0" />
+    </mj-attributes>
+    <mj-preview>🎉 ${name}, vous avez finalisé votre panier sur juice-avenue.com</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="black">
+
+    <mj-include path="./logo.mjml" />
+
+    <mj-section mj-class="headertitle">
+      <mj-column width="100%">
+        <mj-text mj-class="center fxl" font-weight="600" text-transform="uppercase">
+          Votre commande!
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="white">
+      <mj-column width="95%">
+        <mj-spacer height="30px" />
+
+        <mj-text mj-class="fl" text-transform="capitalize" padding-bottom="6px">
+          hello ${name}!
+        </mj-text>
+        <mj-text mj-class="fl">
+          On vient de recevoir la validation de votre commande.
+        </mj-text>
+
+        <mj-spacer height="40px" />
+
+        <mj-table>
+          <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+            <th style="padding: 0 15px 0 0;">Num Commande</th>
+            <th style="padding: 0 15px;">HT</th>
+            <th style="padding: 0 0 0 15px;">TTC</th>
+          </tr>
+          <tr>
+            <td style="padding: 0 15px 0 0;">${orderId}</td>
+            <td style="padding: 0 15px;">${ht}</td>
+            <td style="padding: 0 0 0 15px;">${ttc}</td>
+          </tr>
+        </mj-table>
+
+        <mj-spacer height="40px" />
+
+        <mj-text>
+          Dés la récéption de votre virement vous receverez votre facture ainsi que le numéro de suivi de votre colis.
+        </mj-text>
+        <mj-spacer height="18px" />
+        <mj-text font-weight="600">
+          Voici nos coordonnées bancaires.
+        </mj-text>
+
+        <mj-spacer height="20px" />
+
+        <mj-table>
+          <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+            <th style="padding: 0 15px 0 0;">IBAN</th>
+            <th style="padding: 0 0 0 15px;">BIC</th>
+          </tr>
+          <tr>
+            <td style="padding: 0 15px 0 0;">FR76 1679 8000 0100 0006 8123 609</td>
+            <td style="padding: 0 0 0 15px;">TRZOFR21XXX</td>
+          </tr>
+        </mj-table>
+        <mj-table>
+          <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+            <th style="padding: 0 15px 0 0;text-align:center;">Code banque</th>
+            <th style="padding: 0 0 0 15px;text-align:center;">Code guichet</th>
+            <th style="padding: 0 0 0 15px;text-align:center;">Num de compte</th>
+            <th style="padding: 0 0 0 15px;text-align:center;">clé RIB</th>
+          </tr>
+          <tr>
+            <td style="padding: 0 15px 0 0;text-align:center;">16798</td>
+            <td style="padding: 0 0 0 15px;text-align:center;">00001</td>
+            <td style="padding: 0 15px 0 0;text-align:center;">00000681236</td>
+            <td style="padding: 0 0 0 15px;text-align:center;">09</td>
+          </tr>
+        </mj-table>
+
+        <mj-spacer height="30px" />
+
+        <mj-text mj-class="fs" font-weight="600" text-transform="uppercase" padding-bottom="6px">
+          Titulaire du compte:
+        </mj-text>
+        <mj-text mj-class="fs" padding-bottom="16px">
+          JUICE AVENUE DISTRIBUTION - 231 Rue Saint-Honoré, 75001 Paris 1er Arrondissement, FRANCE
+        </mj-text>
+        <mj-text mj-class="fs" font-weight="600" text-transform="uppercase" padding-bottom="6px">
+          Domiciliation:
+        </mj-text>
+        <mj-text mj-class="fs">
+          REEZOR - 94 rue de Villiers, 92300 Levallois-Perret, France
+        </mj-text>
+        <mj-spacer height="40px" />
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#fff">
+      <mj-column width="95%">
+        <mj-include path="./kil.mjml" />
+        <mj-text mj-class="center" font-style="italic" padding-bottom="16px">
+          "Normalement, ya tous dans votre profile <a href="https://www.juice-avenue.com/orders">onglet commandes</a> ou sinon MP moi 👀"
+        </mj-text>
+        <mj-include path="./footer.mjml" />
+        <mj-spacer height="40px" />
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./social.mjml" />
+
+  </mj-body>
+</mjml>

@@ -1,0 +1,20 @@
+[
+    {
+        "lat": 48.866103,
+        "long": 2.329013,
+        "name": "Juice avenue",
+        "info": 10
+    },
+    {
+        "lat": 48.915054,
+        "long": 2.3387145,
+        "name": "XYZ pov",
+        "info": 20
+    },
+    {
+        "lat": 48.824045,
+        "long": 2.3205184,
+        "name": "NRI pov",
+        "info": 10
+    }
+]

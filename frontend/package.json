@@ -1,0 +1,137 @@
+{
+  "name": "jad-frontend",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.x"
+  },
+  "main": "index.js",
+  "repository": "",
+  "author": "roby <robyremzy@openmailbox.org>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next -p 7788",
+    "start": "next start -p $PORT",
+    "gcp-build": "next build",
+    "build": "next build",
+    "export": "next export",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "deploy": "npm run build && npm run export",
+    "heroku-postbuild": "next build"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/pro-or-not": "file:./static/pro-or-not",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "apollo-boost": "^0.4.1",
+    "apollo-client": "^2.5.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-styled-components": "^1.7.1",
+    "cookie": "^0.4.0",
+    "date-fns": "^1.30.1",
+    "graphql": "^14.2.1",
+    "graphql-tag": "^2.10.1",
+    "js-cookie": "^2.2.0",
+    "mitt": "^1.1.3",
+    "next": "^8.0.3",
+    "next-with-apollo": "^3.4.0",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.5",
+    "react-apollo": "^2.5.3",
+    "react-awesome-slider": "^0.7.2",
+    "react-dom": "^16.8.5",
+    "react-map-gl": "^5.0.4",
+    "react-no-ssr": "^1.1.0",
+    "react-player": "^1.13.0",
+    "react-slick": "^0.24.0",
+    "react-stripe-checkout": "^2.6.3",
+    "react-stripe-elements": "^2.0.3",
+    "react-transition-group": "^2.9.0",
+    "shortid": "^2.2.14",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-wesbos": "0.0.19",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.3.0",
+    "graphql-tools": "^4.0.4",
+    "prettier": "^1.16.4"
+  },
+  "//": "This is the babel config",
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "production": {
+        "presets": [
+          "next/babel"
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      },
+      "test": {
+        "presets": [
+          [
+            "next/babel",
+            {
+              "preset-env": {
+                "modules": "commonjs"
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          [
+            "styled-components",
+            {
+              "ssr": true,
+              "displayName": true
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "////": "This is the eslint config",
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ],
+    "rules": {
+      "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "jsx-a11y/no-static-element-interactions": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
+      "react/destructuring-assignment": "off"
+    }
+  }
+}

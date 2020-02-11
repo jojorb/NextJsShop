@@ -1,0 +1,8 @@
+<mj-section background-color="white">
+  <mj-column width="100%">
+    <mj-image padding="0px" width="125px" src="https://res.cloudinary.com/jadistrib/image/upload/v1556575031/logo/logo_kil_transparent.png"></mj-image>
+    <mj-text mj-class="fxxl dark center" text-transform="capitalize">juice avenue</mj-text>
+    <mj-text mj-class="fxl dark center" text-transform="uppercase">distribution</mj-text>
+    <mj-spacer height="16px" />
+  </mj-column>
+</mj-section>

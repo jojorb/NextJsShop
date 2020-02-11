@@ -1,0 +1,81 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Helvetica Neue" font-size="16px" color="black" font-weight="200" />
+      <mj-text padding="0" />
+      <mj-class name="dark" color="#c1c1c1" />
+      <mj-class name="lightgrey" color="#f6f6f6" />
+      <mj-class name="darkgrey" color="#e0e0e0" />
+      <mj-class name="fxxl" font-size="30px" />
+      <mj-class name="fxl" font-size="20px" />
+      <mj-class name="fl" font-size="18px" />
+      <mj-class name="fs" font-size="12px" />
+      <mj-class name="center" align="center" />
+      <mj-class name="headertitle" background-color="#f6f6f6" border-top="1px solid #e0e0e0" border-bottom="1px solid #e0e0e0" />
+    </mj-attributes>
+    <mj-preview>👋 ${name}, Bienvenue sur juice-avenue.com! Merci de valider votre email et votre société</mj-preview>
+  </mj-head>
+
+  <mj-body background-color="black">
+
+    <mj-include path="./logo.mjml" />
+
+    <mj-section mj-class="headertitle">
+      <mj-column width="100%">
+        <mj-text mj-class="center fxl" font-weight="600" text-transform="uppercase">
+          la famille, c'est sacré!...
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="white">
+      <mj-column width="95%">
+        <mj-spacer height="30px" />
+
+        <mj-text mj-class="fl" text-transform="capitalize" padding-bottom="6px">
+          hello ${name}!
+        </mj-text>
+        <mj-text mj-class="fl">
+          Merci pour ce premier pas! Il te reste juste 2 vérifications!
+        </mj-text>
+
+        <mj-spacer height="20px" />
+
+        <mj-text>
+          1- Vérifie cet email en cliquant sur le bouton ci-dessous.
+        </mj-text>
+        <mj-text>
+          2- Dans ton espace perso rentre ton numéro de siret (vérification INSEE).
+        </mj-text>
+
+        <mj-spacer height="40px" />
+
+        <mj-text mj-class="fl dark">
+          Nous somme revendeur B2B d'ou là vérification SIRET.
+        </mj-text>
+
+        <mj-spacer height="50px" />
+        <mj-button font-family="Helvetica Neue" background-color="#000" color="white" font-weight="600" font-size="18px" href=${link}>
+          valider mon email
+        </mj-button>
+        <mj-spacer height="30px" />
+
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#fff">
+      <mj-column width="95%">
+        <mj-include path="./kil.mjml" />
+        <mj-text mj-class="center" font-style="italic" padding-bottom="16px">
+          "Salut ${name}, valide bien les deux vérifications.
+          Après tu pourras voir nos tarifs et commander chez nous 🎉 chui dispo en MP"
+        </mj-text>
+        <mj-include path="./footer.mjml" />
+        <mj-spacer height="40px" />
+      </mj-column>
+    </mj-section>
+
+    <mj-include path="./social.mjml" />
+
+  </mj-body>
+</mjml>

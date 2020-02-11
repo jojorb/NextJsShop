@@ -1,0 +1,84 @@
+# import * from './generated/prisma.graphql'
+type User {
+  id: ID!
+  firstname: String!
+  lastname: String!
+  email: String!
+  phone: String!
+  permissions: [Permission]
+  address: [UserAddress]
+  company: [UserCompany]
+  discount: Int
+  cart: [CartItem!]!
+}
+
+type SuccessMessage {
+  message: String
+}
+
+type BusinessNorm {
+  siren: String
+  siret: String
+  tva: String
+  nafape: String
+  name: String
+}
+
+type Query {
+  item(where: ItemWhereUniqueInput!): Item
+  brands(where: BrandWhereInput orderBy: BrandOrderByInput):[Brand]!
+  items(
+    where: ItemWhereInput
+    orderBy: ItemOrderByInput
+    skip: Int
+    first: Int): [Item]!
+  category(where: CategoryWhereUniqueInput!): Category
+  itemsConnection(where: ItemWhereInput): ItemConnection!
+  me: User
+  users: [User]!
+  mybiz(siret: String): BusinessNorm
+  order(id: ID!): Order
+  orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order]!
+}
+
+
+type Mutation {
+  signup(
+    firstname: String!
+    lastname: String!
+    phone: String!
+    email: String!
+    password: String!
+  ): User!
+  userCheckEmail(id: ID!): SuccessMessage
+  signin(email: String!, password: String!): User!
+  signout: SuccessMessage
+  requestReset(email: String!): SuccessMessage
+  resetPassword(
+    resetToken: String!
+    password: String!
+    confirmPassword: String!
+  ): User!
+  updatePermissions(permissions: [Permission], userId: ID!): User
+  createUserAddress(
+    title: String!
+    invoice: Boolean!
+    shipping: Boolean!
+    name: String
+    address: String
+    zip: String
+    city: String
+    country: String
+  ): UserAddress!
+  createUserCompany(
+  siren: String!
+  siret: String
+  tva: String!
+  nafape: String
+  name: String!
+  ): UserCompany!
+  addToCart(id: ID!): CartItem
+  updateFromCart(id: ID! quantity: Int!): CartItem
+  removeFromCart(id: ID!): CartItem
+  createOrder(transactionToken: String! invoiceAdr: String! shippingAdr: String!): Order!
+}

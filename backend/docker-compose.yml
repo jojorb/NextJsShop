@@ -1,0 +1,51 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:11
+    container_name: postgres-nextshop
+    restart: always
+    networks:
+      - netrunner
+    # remove redirect port on production
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${PRISMA_DB_USER}
+      POSTGRES_PASSWORD: ${PRISMA_DB_USER_PSW}
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+
+
+  prisma:
+    # image: prismagraphql/prisma:1.30.1
+    image: prismagraphql/prisma:1.34
+    container_name: prisma-nextshop
+    restart: always
+    networks:
+      - netrunner
+    ports:
+    - "${PRISMA_PORT}:4466"
+    depends_on:
+      - postgres
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        managementApiSecret: ${PRISMA_MANAGEMENT_API_SECRET}
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            user: ${PRISMA_DB_USER}
+            password: ${PRISMA_DB_USER_PSW}
+            rawAccess: false
+            port: 5432
+            migrations: true
+
+volumes:
+  postgres-db:
+
+networks:
+  netrunner:
+    driver: bridge
